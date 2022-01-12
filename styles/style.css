@@ -1,0 +1,99 @@
+:root {
+    --header-bg: rgb(1, 2, 17);
+    --header-font: rgb(255, 230, 0);
+    
+    --body-bg: rgb(8,10,34);
+    --primary-font: #eee;
+
+    --btn-bg: rgb(36, 36, 63);
+    --btn-hvr: rgb(72, 72, 88);
+    --btn-fnt: 65px;
+  }
+
+body {
+    margin: 0;
+    background-color: var(--body-bg);
+    color: var(--primary-font);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-font);
+    font-size: 24px;
+    text-align: center;
+    padding: 24px 0;
+    width: 100vw;
+    font-family: 'Cinzel Decorative';
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    flex: 1;
+    padding: 25px;
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 40px;
+    font-weight: 500;
+}
+
+.weapon-choice {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 40px;
+}
+
+p {
+    margin: 0;
+    padding: 0 0 5px;
+}
+
+#result {
+    font-size: 27px;
+}
+
+.btn-size {
+    padding: 20px;
+    font-size: var(--btn-fnt);
+    border: none;
+    border-radius: 10px;
+}
+.score-line {
+    display: flex;
+}
+
+.player, .computer {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background: var(--btn-bg);
+}
+
+.btn:hover {
+    background-color: var(--btn-hvr);
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap" rel="stylesheet">
+
+    <script src="./scripts/script.js"></script>
+    
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+    <main class="main">
+        <div class="scoreboard">
+            <div class="round-result">
+                <p id="result">Choose your weapon</p>
+                <p id="outcome">First to 5 wins</p>
+            </div>
+            <div class="weapon-choice">
+                <div class="player">
+                    <p class="player-choice btn-size" id="pChoice">&#x2753;</p>
+                    <div class="score-line">
+                        <p>Player:&nbsp;</p>
+                        <p class="player-score" id="pScore">0</p>
+                    </div>
+                </div>
+                <div class="computer">
+                    <p class="computer-choice btn-size" id="cChoice">&#x2753;</p>
+                    <div class="score-line">
+                        <p>Computer:&nbsp;</p>
+                        <p class="computer-score" id="cScore">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="selectors">
+            <button class="btn-size btn" id="rockBtn">&#9994;</button>
+            <button class="btn-size btn" id="paperBtn">&#9995;</button>
+            <button class="btn-size btn" id="scissorsBtn">&#9996;</button>
+        </div>
+    </main>
+    <footer class="footer">
+        <p class="credit">Created by Timothy Erckert 
+            <script>document.write(new Date().getFullYear())</script>
+        </p>
+    </footer>
+</body>
+</html>
