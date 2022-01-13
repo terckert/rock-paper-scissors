@@ -109,3 +109,34 @@ p {
     align-items: center;
     justify-content: center;
 }
+
+#overlay {
+    padding: 50px 50px;
+    width: 50%;
+    border-radius: 10px;
+    position: fixed;
+    top: 30%;
+    background-color: var(--header-bg);
+    display: none;
+    
+}
+
+#overlay.show{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+#win-msg {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+#play-again {
+    font-size: 27px;
+    color: var(--primary-font);
+    padding: 20px 50px;
+}
