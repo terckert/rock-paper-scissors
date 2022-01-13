@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap" rel="stylesheet">
-
-    <script src="./scripts/script.js"></script>
     
     <title>Rock Paper Scissors</title>
 </head>
@@ -52,5 +50,119 @@
             <script>document.write(new Date().getFullYear())</script>
         </p>
     </footer>
+    <script type="text/javascript">
+        //***************************************************************************
+        // UI Constants
+        const result = document.getElementById('result');   // win/loss
+        const outcome = document.getElementById('outcome'); // Tie/'x beats y'
+        
+        // Player/Computer choices this round
+        const pChoice = document.getElementById('pChoice'); // Player's choice
+        const cChoice = document.getElementById('cChoice'); // Computer's choice
+        
+        // Scores to be updated
+        const pScore = document.getElementById('pScore');   // Player score
+        const cScore = document.getElementById('cScore');   // Computer Score
+        
+        // Player selection buttons
+        const rockBtn = document.getElementById('rockBtn');     
+        const paperBtn = document.getElementById('paperBtn');   
+        const scissorsBtn = document.getElementById('scissorsBtn');
+        //***************************************************************************
+        // Game Logic
+        // Global variables
+        let playScore = 0;                          // Player score
+        let compScore = 0;                          // Computer score
+
+        function startRound(playerSelection) {
+            let computerSelection = updateComputerChoice();
+            updatePlayerChoice(playerSelection);
+            updateRoundOutcome(playerSelection, computerSelection);
+
+        }
+
+        // Updates player choice frame
+        function updatePlayerChoice(playerSelection) {
+            switch (playerSelection) {
+                case 'Rock':
+                    pChoice.innerHTML = '&#9994;';
+                    break;
+                case 'Paper':
+                    pChoice.innerHTML = '&#9995;';
+                    break;
+                case 'Scissors':
+                    pChoice.innerHTML = '&#9996';
+                    break;
+            }
+        }
+
+        // Randomizes computer choice and upadtes frame. Returns value
+        function updateComputerChoice()
+        {
+            let computerSelection = Math.floor(Math.random() * 3);
+            switch (computerSelection) {
+                case 0:     // Rock
+                    cChoice.innerHTML = '&#9994';
+                    computerSelection = 'Rock';
+                    break;
+                case 1:     // Paper
+                    cChoice.innerHTML = '&#9995';
+                    computerSelection = 'Paper';
+                    break;
+                case 2:     // Scissors
+                    cChoice.innerHTML = '&#9996';
+                    computerSelection = 'Scissors';
+                    break;
+            }
+
+            return computerSelection;
+        }
+        
+        // Update UI round outcome, win/loss/tie
+        function updateRoundOutcome(playerSelection, computerSelection)
+        {
+            let roundOutcome = determineOutcome(playerSelection,computerSelection);
+            
+            switch (roundOutcome){
+                case 'tie':
+                    result.innerText = `It's a tie!`;
+                    outcome.innerText = `Better luck next round...`;
+                    return;
+                case 'win':
+                    result.innerText = `You won!`;
+                    outcome.innerText = `${playerSelection} beats ${computerSelection}`;
+                    pScore.innerText++;
+                    return;
+                case 'loss':
+                    result.innerText = 'You lost...';
+                    outcome.innerText = `${computerSelection} beats ${playerSelection}`;
+                    cScore.innerText++;
+                    return;
+            }
+            
+        }
+        
+        // Determines if player won round
+        function determineOutcome(playerSelection, computerSelection)
+        {
+            if (playerSelection == computerSelection) {
+                return 'tie';
+            } else if (             
+                (playerSelection == 'Rock' && computerSelection == 'Scissors') ||
+                (playerSelection == 'Paper' && computerSelection == 'Rock') ||
+                (playerSelection == 'Scissors' && computerSelection == 'Paper') 
+            ) {
+                return 'win';
+            } else {
+                return 'loss';
+            }
+        }
+        //***************************************************************************
+        // Event Listeners -- Starts a round of RPS with the player's selection.
+        rockBtn.addEventListener('click', ()=>startRound('Rock'));
+        paperBtn.addEventListener('click', ()=>startRound('Paper'));
+        scissorsBtn.addEventListener('click', ()=>startRound('Scissors'));
+    </script>
+    <script type="text/javascript" src="./scripts/script.js"></script>
 </body>
 </html>
